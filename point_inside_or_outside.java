@@ -8,13 +8,15 @@ class point{
         this.y=y;
     }
 }
-class detqlogn{
+class point_inside_or_outside{
+    //cross product to get the orientation of the query point q wrt the line (current,next)
     static int isLeft(point current,point next,point  q){
         return ((next.x-current.x)*(q.y-current.y)-(q.x-current.x)*(next.y-current.y));
     }
     static void det(point[] p,point q){
         int length=p.length;
         int a=1,b=length-1;
+        // use binary search to guess the point until the search space is reduced to an area of a triangle
         while(a<b-1){
             int c=(a+b)/2;
             if(isLeft(p[0],p[c],q)>0){
@@ -25,7 +27,7 @@ class detqlogn{
             }
             
         }
-            
+            //check whether the query point lies inside the triangle or not
             if(isLeft(p[0],p[a],q)<0 || isLeft(p[a],p[b],q)<0 || isLeft(p[b],p[0],q)<0){
                 System.out.println("q lies outside!");            
             }
