@@ -1,0 +1,29 @@
+//T.c=O(n) space comp=O(1) c++
+
+int main() {
+  string maxstr,str="abccddeffg",str1;
+    int maxlen=0,len=0,k=4,charset[128]={0};
+    for(int lo=0,hi=0,numDist=0;hi<str.length();hi++){
+        
+        str1.push_back(str[hi]);     
+        if(charset[str[hi]]==0){
+            numDist++;
+        }
+        charset[str[hi]]++;
+        len=hi-lo+1; //cout<<len<<"\n";
+        if(numDist==k && maxlen<=len){
+            maxstr=str1;
+            maxlen=len;
+        }
+        while(numDist>k){
+            charset[str[lo]]--;//cout<<str[lo]<<"\n";
+            if(charset[str[lo]]==0){
+                numDist--;
+            }
+            str1.erase(str1.begin()); //cout<<str1<<"\n";
+            lo++;
+        }
+    }
+    cout<<maxstr;
+    return 0;
+}
