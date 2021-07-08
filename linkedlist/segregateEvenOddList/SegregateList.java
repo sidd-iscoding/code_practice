@@ -9,7 +9,6 @@ class Node
 class SegregateList{   
     
     Node head,tail;
-    //Function to find the data of nth node from the end of a linked list.
     
     public void add(int new_data)
     {
