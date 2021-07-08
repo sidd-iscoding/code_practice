@@ -1,11 +1,10 @@
-//Space complexity=O(n) because of stack
 class Node
 {
     int data;
     Node next;
     Node(int d) {data = d; next = null; }
 }
-class recursiveLL {
+class Iterative {
     Node head,tail;
     
     public void add(int new_data)
@@ -30,7 +29,7 @@ class recursiveLL {
     }
     public static void main(String[] args) {
         var ll=new recursiveLL();
-        RevLL sn=new RevLL();
+        RevIterative sn=new RevIterative();
         ll.add(8);
         ll.add(12);
         ll.add(10);
@@ -45,22 +44,17 @@ class recursiveLL {
         ll.display(ll.head);
         System.out.println();
     }
-    
 }
-class RevLL{
+class RevIterative{
     Node revLinkList(Node head){
-        Node nextNode,revList;
-        if(head==null){
-            return head;
-        }
-        if(head.next==null){
-            return head;
-        }
-        nextNode=head.next;
-        head.next=null;
-        revList=revLinkList(nextNode);
-        nextNode.next=head;
-        return revList;
-    }
+        Node nextNode,prevNode=null;
+        while(head!=null){
+            nextNode=head.next;
+            head.next=prevNode;
+            prevNode=head;
+            head=nextNode;
 
+        }
+        return prevNode;
+    }
 }
