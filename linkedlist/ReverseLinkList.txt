@@ -1,0 +1,56 @@
+// "static void main" must be defined in a public class.
+class Node{
+    int data;
+    Node next=null;
+    Node(int data){
+        this.data=data;
+    }
+}
+public class RevLinkList {
+    Node head,tail;
+    void insertNode(int data){
+        Node new_node=new Node(data);
+        if(head==null){
+            head=new_node;
+            tail=new_node;
+        }
+        else{
+           tail.next=new_node;
+            tail=new_node;
+        }
+    }
+    void display(Node head){
+        Node current=head;
+        while(current!=null){
+            System.out.print(current.data+"->");
+            current=current.next;
+        }
+        System.out.println("null");
+    }
+    Node reverseLinkList(Node head){
+        Node nextNode;
+        if(head==null){
+            return head;
+        }
+        if(head.next==null){
+            return head;
+        }
+        nextNode=head.next;
+        head.next=null;
+        Node revList=reverseLinkList(nextNode);
+        nextNode.next=head;
+        return revList;
+    }
+    
+    public static void main(String[] args) {
+        RevLinkList rev=new RevLinkList();
+        rev.insertNode(1);
+        rev.insertNode(2);
+        rev.insertNode(3);
+        rev.insertNode(4);
+        rev.display(rev.head);
+        Node revListHead=rev.reverseLinkList(rev.head);
+        rev.display(revListHead);
+       
+    }
+}
