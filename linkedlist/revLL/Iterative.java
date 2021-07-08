@@ -28,7 +28,7 @@ class Iterative {
         }
     }
     public static void main(String[] args) {
-        var ll=new recursiveLL();
+        var ll=new Iterative();
         RevIterative sn=new RevIterative();
         ll.add(8);
         ll.add(12);
