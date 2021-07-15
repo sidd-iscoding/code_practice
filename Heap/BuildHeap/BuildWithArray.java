@@ -1,6 +1,8 @@
+package Heap.BuildHeap;
+
 //Time complexity O(n)  space complexity O(1)
-class BuildWithArray {
-    void minHeapify(int[] arr,int len,int min){
+public class BuildWithArray {
+    public void minHeapify(int[] arr,int len,int min){
      int parent=min,lChild=2*parent+1,rChild=2*parent+2;
              if(lChild<len && arr[lChild]<arr[parent]){
                  min=lChild;
@@ -15,12 +17,12 @@ class BuildWithArray {
                  minHeapify(arr,len,min);
              }
     }
-     void buildHeap(int[] arr,int len){
+     public void buildHeap(int[] arr,int len){
          for(int i=(len-2)/2;i>=0;i--){
              minHeapify(arr,len,i);
          }
      }
-     void swap(int[] arr,int a,int b){
+     public void swap(int[] arr,int a,int b){
          int temp=arr[a];
          arr[a]=arr[b];
          arr[b]=temp;
