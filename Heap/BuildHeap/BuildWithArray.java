@@ -1,4 +1,4 @@
-//Time complexity O(n) space complexity O(1)
+//Time complexity O(n)  space complexity O(1)
 class BuildWithArray {
    void minHeapify(int[] arr,int len,int min){
     int parent=min,lChild=2*parent+1,rChild=2*parent+2;
