@@ -1,3 +1,5 @@
+//Time complexity O(N) since each element is processed (add/remove) at most twice. 
+//and Space=O(K) size of dequeue
 package Queue.MaxSubarraySum;
 
 import java.util.ArrayDeque;
